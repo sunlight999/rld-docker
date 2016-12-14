@@ -1,6 +1,8 @@
 version: '2'
 services:
   front:
-    build: ./front
+    image: nginx:latest
+    volumes: 
+     - ./front:/usr/share/nginx/html
     ports:
      - "80:80"
