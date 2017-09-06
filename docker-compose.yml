@@ -4,5 +4,13 @@ services:
     image: nginx:latest
     volumes: 
      - ./front:/usr/share/nginx/html
+     - ./front-conf:/
     ports:
      - "80:80"
+  back:
+    build: node:6.5-wheezy
+    command: bash -c "cd /code && node server.js"
+    volumes: 
+     - ./back:/code
+    ports:
+     - "8080:8080"
